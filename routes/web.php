@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ActualiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ActualiteController::class, "index"]);
+Route::post('/actualites/{actualite}',[ActualiteController::class, "create"]);
+Route::get('/actualites/create',[ActualiteController::class, "new"]);
+Route::get('/actualites/{actualite}',[ActualiteController::class, "show"]);
+Route::get('/actualites/update/{actualite}',[ActualiteController::class, "update"]);
+Route::post('/actualites/update/{actualite}',[ActualiteController::class, "edit"]);
+Route::put('/actualites/update/{actualite}',[ActualiteController::class, "edit"]);
+Route::delete('/actualites/{actualite}',[ActualiteController::class, "delete"]);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

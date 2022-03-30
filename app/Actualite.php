@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actualite extends Model
 {
+    protected $fillable=['title','image','content'];
     
 }

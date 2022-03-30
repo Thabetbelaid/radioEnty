@@ -1,0 +1,38 @@
+.act{
+    padding:10px;
+    border : 2px solid #ddd;
+    border-radius: 1%;
+    height:250px;
+    background-color: #DDE2E7;
+    margin-bottom: 2%;
+}
+.act:hover{
+    box-shadow: 1px 1px 1px 1px black;
+}
+.act_img{
+    position: relative;
+    float: right;
+    border-radius: 5%;
+    width: 220px;
+    height: 220px;
+    padding-top:15px;
+    padding-right: 15px;
+}
+.act_title{
+text-decoration: underline;
+}
+.act_cont{
+    line-height: 1.8;
+}
+.actualite_cover{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 5%;
+}
+.show_title{
+text-align: center;
+text-decoration: underline;
+}
+.show_content{
+text-align: right;
+}

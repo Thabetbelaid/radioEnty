@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualiteController;
+use App\Pub;
+use App\Actualite;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,18 @@ use App\Http\Controllers\ActualiteController;
 |
 */
 
-Route::get('/',[ActualiteController::class, "index"]);
+Route::get('/', function(){
+    //$pub = Pub::latest();
+    //$recent= Actualite::latest()->get(5);
+    //$top = Actualite::orderBy('viewCount','desc')->get(5);
+    /*return view('welcome',[
+        'pub'=>$pub,
+        'recent'=>$recent,
+        'top'=>$top
+        ]);*/
+    return view('welcome');
+});
+route::get('/actualites',[ActualiteController::class, "index"]);
 Route::post('/actualites/{actualite}',[ActualiteController::class, "create"]);
 Route::get('/actualites/create',[ActualiteController::class, "new"]);
 Route::get('/actualites/{actualite}',[ActualiteController::class, "show"]);

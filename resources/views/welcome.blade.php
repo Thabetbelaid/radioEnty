@@ -1,4 +1,8 @@
 @extends('layouts.app')
+
+@section('entete')
+    <link rel="stylesheet" href="css/welcome.css" type="text/css">
+@endsection
 @section('content')
     
 
@@ -625,15 +629,36 @@
     <div class="divider-lg"></div>
     <div class="row">
       <div class="col-sm-6 col-lg-4 animate fadeInLeft">
-        top 5
-        {{-- ajouter top act --}}
+        <h2><span class="icon flaticon-movie29 color"></span>TOP 5</h2>
+    
+      @foreach ($top as $top_act)
+      <div class="faq-outer">
+        <div class="faq-heading">
+            <img src="{{Voyager::image($top_act->image)}}" class="act_img" >
+            {{$top_act->title}} 
+    </div>
+        <span class="act_cont">{{$extract = substr($top_act->content,0,100)}}</span>
+       <br><a href="/actualites/{{$top_act->id}}">voir plus</a>
+
+      
+      </div>
+      @endforeach
       </div>
       
       <div class="col-sm-12 col-lg-8 animate fadeInRight">
         <h2><span class="icon flaticon-movie29 color"></span>Most Recent</h2>
-        <div class="equal-height">
-            {{-- ajouter recent act --}}
-        </div>
+        @foreach ($recent as $recent_act)
+      <div class="faq-outer">
+        <div class="faq-heading">
+            <img src="{{Voyager::image($recent_act->image)}}" class="act_img" >
+            {{$recent_act->title}} 
+    </div>
+        <span class="act_cont">{{$extract = substr($recent_act->content,0,200)}}</span>
+       <br><a href="/actualites/{{$recent_act->id}}">voir plus</a>
+
+      
+      </div>
+      @endforeach
       </div>
     </div>
   </section>
@@ -690,34 +715,39 @@
         <div class="col-sm-4 animate fadeUp info-box">
           <div class="inside">
             <div class="text">
-              <h3>About <span class="color">LIVE RADIO</span></h3>
-              <p><img src="images/liveradio/about-img.png" alt="" class="img-left" /> <strong>Vestibulum justo. Nulla mauris ipsum vestibulum eunisi.</strong></p>
-              <p>Curabitur molestie euismod erat. Proin eros odio, mattis rutrum, pulvinar et, egestas. Pell entesque<br>
-                Integer semper, velit ut interdum malesuada, diam sem. Pellentesque adipiscing nisi. Nulla facilisi. Mauris lacinia lectus sit amet felis. Aliquam erat volutpat. Nulla porttitor tortor at nisl. </p>
-              <p>Nam lectus nulla, bibendum pretium, dictum a, mattis dictum et, pulvinar non, ultricies ac, nibh. </p>
+              <h3>User <span class="color">Stories</span></h3>
+              {{$temoins = DB::table('temoignages')->latest()->limit(5)->get()}}
+              @foreach ($temoins as $tm)
+              <p><img src="{{Voyager::image($tm->uploader->avatar)}}" alt="" class="img-left" /> <strong>{{$tm->name}}</strong></p>
+              <p>{{$extract = substr($tm->message,0,250)}}</p>
+              @endforeach
             </div>
-            <div class="info-box-bg-icon"><span class="flaticon-note-beamed"></span></div>
+            <div class="info-box-bg-icon"><span class="flaticon-flat-mic"></span></div>
           </div>
         </div>
         <div class="col-sm-4 animate fadeUp info-box">
-          <div class="inside">
-            <div class="text">
-              <h3>Latest News</h3>
-              <div class="news-carousel">
-                <div class="news">
-                  <div class="image"><img src="images/liveradio/news-img-1.jpg" alt=""/></div>
-                  <div class="news-date">10/10/2015</div>
-                  <p>Curabitur molestie euismod erat nunc tristique pede. Ut condimentum mattis ullamcorper, pede eget pellentesq magna nonummy odio lorem quis urna.</p>
-                </div>
-                <div class="news">
-                  <div class="image"><img src="images/liveradio/news-img-2.jpg" alt=""/></div>
-                  <div class="news-date">10/10/2015</div>
-                  <p>Ut condimentum mattis ullamcorper, pede eget pellentesque venenatis, felis magna nonummy odio.</p>
-                </div>
+            <div class="row">
+                @foreach ($images1 as $img)
+                  <div class="col">
+                      <img src="{{Voyager::image($img->image)}}" alt="">
+                  </div>
+                @endforeach 
               </div>
-            </div>
-            <div class="info-box-bg-icon"><span class="flaticon-mic"></span></div>
-          </div>
+              <div class="row">
+                @foreach ($images2 as $img)
+                  <div class="col">
+                      <img src="{{Voyager::image($img->image)}}" alt="">
+                  </div>
+                @endforeach 
+              </div>
+              <div class="row">
+                @foreach ($images3 as $img)
+                  <div class="col">
+                      <img src="{{Voyager::image($img->image)}}" alt="">
+                  </div>
+                @endforeach 
+              </div>
+     
         </div>
         <div class="col-sm-4 animate fadeUp info-box">
           <div class="inside">

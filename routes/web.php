@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualiteController;
 use App\Pub;
 use App\Actualite;
+use App\Gallery;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,20 @@ use App\Actualite;
 
 Route::get('/', function(){
     //$pub = Pub::latest();
-    //$recent= Actualite::latest()->get(5);
-    //$top = Actualite::orderBy('viewCount','desc')->get(5);
-    /*return view('welcome',[
-        'pub'=>$pub,
+    $recent= Actualite::latest()->limit(5)->get();
+    $top = Actualite::orderBy('viewCount','desc')->limit(5)->get();
+    $gallery1 = Gallery::latest()->limit(3)->offset(0)->get();
+    $gallery2 = Gallery::latest()->limit(3)->offset(3)->get();
+    $gallery3 = Gallery::latest()->limit(3)->offset(6)->get();
+    return view('welcome',[
+        
         'recent'=>$recent,
-        'top'=>$top
-        ]);*/
-    return view('welcome');
+        'top'=>$top,
+        "images1"=>$gallery1,
+        "images2"=>$gallery2,
+        "images3"=>$gallery3,
+        ]);
+   // return view('welcome');
 });
 route::get('/actualites',[ActualiteController::class, "index"]);
 Route::post('/actualites/{actualite}',[ActualiteController::class, "create"]);

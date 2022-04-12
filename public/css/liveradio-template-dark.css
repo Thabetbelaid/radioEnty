@@ -604,7 +604,7 @@ header {
 .navbar-main-menu, .navbar-main-menu .item {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
-box- sizing:content-box
+box-sizing:content-box
 }
 .navbar-main-menu-outer {
 	margin-top: 12px;
@@ -645,7 +645,8 @@ box- sizing:content-box
 	background: transparent !important;
 }
 .navbar-search .form-control {
- padding-right: 32px background-color: transparent;
+ padding-right: 32px ;
+ background-color: transparent;
 	border: none !important;
 	box-shadow: none;
 	color: transparent;

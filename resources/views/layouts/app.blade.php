@@ -10,6 +10,10 @@
 
         <!-- CSS preloader -->
 <link href="{{asset('css/loader-dark.css')}}" rel="stylesheet">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!-- Bootstrap core CSS -->
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <!-- Custom styles for this template -->
@@ -60,23 +64,22 @@
           <div id="off-canvas-menu-title">MENU<span class="icon flaticon-cancel" id="off-canvas-menu-close"></span></div>
          
           <ul class="expander-list">
-          @foreach ($categories as $cat)
-          <li> <span class="name"><span class="expander">-</span> <a href=".djshtml">{{$cat->name}}</a></span>
+      
+          <li> <span class="name"><span class="expander">-</span> <a href=".djshtml">Categories</a></span>
            
-                {{$sub_cat = DB::table('sub_categories')->where('category_id',$cat->id)->get();}}
                 <ul>
-                @foreach ($sub_cat as $sub)
-                <li><span class="name"><a href="#">{{$sub->name}}</a></span> </li>
+                @foreach ($categories as $cat)
+                <li><span class="name"><a href="#">{{$cat->name}}</a></span> </li>
                     
                 @endforeach
                 </ul>
          
          </li>
-          @endforeach
+
          
             
             <li><span class="name"><a href="schedule.html">Schedule</a></span></li>
-            <li><span class="name"><a href="blog-posts.html">Blog</a></span></li>
+          
             <li><span class="name"><a href="fallery.html">Gallery</a></span></li>
             <li><span class="name"><a href="faq.html">FAQ</a></span></li>
             <li><span class="name"><a href="contact.html">Contact</a></span></li>
@@ -146,29 +149,28 @@
                       <dd></dd>
                       <dt class="item">
                         <ul class="sf-menu">
-                            @foreach ($categories as $cat)
+                         
                                 
                            
-                                 <li> <a href="djs.html">{{$cat->name}}</a>
-                                {{$sub_cats = DB::table('sub_categories')->where('category_id',$cat->id)->get();}}
+                                 <li> <a href="djs.html">categoies</a>
+                             
                             
-                                  <ul>
-                                    @foreach ($sub_cats as $sub)
-                                         <li><a href="#">{{$sub->name}}</a></li>
+                                  <ul>   @foreach ($categories as $cat)
+                                   
+                                         <li><a href="#">{{$cat->name}}</a></li>
                                         
                                     @endforeach
                               
                              
                                    </ul>
                                   </li>
-                           @endforeach
+                         
                         </ul>
                       </dt>
                       <dd></dd>
                       <dt class="item"> <a href="schedule.html" class="btn-main">Schedule</a> </dt>
                       <dd></dd>
-                      <dt class="item"> <a href="blog-posts.html" class="btn-main">BLOG</a> </dt>
-                      <dd></dd>
+                   
                       <dt class="item"> <a href="gallery.html" class="btn-main">GALLERY</a> </dt>
                       <dd></dd>
                       <dt class="item"> <a href="faq.html" class="btn-main">FAQ</a> </dt>

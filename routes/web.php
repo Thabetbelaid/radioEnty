@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualiteController;
+use App\Http\Controllers\enregistrementController;
 use App\Pub;
 use App\Actualite;
 use App\Gallery;
@@ -42,6 +43,11 @@ Route::get('/actualites/update/{actualite}',[ActualiteController::class, "update
 Route::post('/actualites/update/{actualite}',[ActualiteController::class, "edit"]);
 Route::put('/actualites/update/{actualite}',[ActualiteController::class, "edit"]);
 Route::delete('/actualites/{actualite}',[ActualiteController::class, "delete"]);
+
+route::get('/enregistrements',[enregistrementController::class,'index']);
+route::get('/enregistrements/new',[enregistrementController::class,'create']);
+route::post('/enregistrements/new',[enregistrementController::class,'store']);
+route::get('/enregistrements/{id}',[enregistrementController::class,'show']);
 
 
 Route::get('/dashboard', function () {

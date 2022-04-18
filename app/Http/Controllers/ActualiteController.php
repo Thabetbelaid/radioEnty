@@ -24,7 +24,7 @@ class ActualiteController extends Controller
     //
     public function create(Request $request)
     {
-        # code...
+       
     }
     public function show(Actualite $actualite )
     {

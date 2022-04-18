@@ -637,8 +637,9 @@
             <img src="{{Voyager::image($top_act->image)}}" class="act_img" >
             {{$top_act->title}} 
     </div>
-        <span class="act_cont">{{$extract = substr($top_act->content,0,100)}}</span>
+        <span class="act_cont">{{$extract = substr($top_act->content,0,100)}}
        <br><a href="/actualites/{{$top_act->id}}">voir plus</a>
+    </span>
 
       
       </div>

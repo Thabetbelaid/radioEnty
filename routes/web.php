@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualiteController;
 use App\Http\Controllers\enregistrementController;
+use App\Http\Controllers\TemoignageController;
 use App\Pub;
 use App\Actualite;
 use App\Gallery;
@@ -48,6 +49,12 @@ route::get('/enregistrements',[enregistrementController::class,'index']);
 route::get('/enregistrements/new',[enregistrementController::class,'create']);
 route::post('/enregistrements/new',[enregistrementController::class,'store']);
 route::get('/enregistrements/{id}',[enregistrementController::class,'show']);
+
+route::get('/temoignages',[TemoignageController::class,'index']);
+route::get('/temoignages/new',[TemoignageController::class,'create']);
+route::post('/temoignages/new',[TemoignageController::class,'store']);
+route::get('/temoignages/{id}',[TemoignageController::class,'show']);
+route::get('/temoignages/users/{id}',[TemoignageController::class,'users_temoignage']);
 
 
 Route::get('/dashboard', function () {

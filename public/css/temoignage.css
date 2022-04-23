@@ -1,0 +1,12 @@
+img{
+    width: 200px;
+    height: 200px;
+}
+img:hover{
+    width: 220px;
+    height: 220px;
+    box-shadow: 2px 2px 10px 1px whitesmoke;
+}
+body{
+    color: wheat;
+}

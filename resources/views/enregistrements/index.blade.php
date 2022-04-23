@@ -9,7 +9,9 @@
     <input type="submit" value="recherche">
 </form>
 <div class=" animate fadeInLeft">
+
     <h2><span class="icon flaticon-audio36 color"></span>Top 10</h2>
+      <a href="/enregistrements/new">ajouter un temoignage vocal</a>
     <div id="content-player">
       <div class="scrollpane">
         <div id="jquery_jplayer_2" class="jp-jplayer"></div>
@@ -24,7 +26,7 @@
           </div> --}}
           @foreach ($enregistrements as $en)
               
-          <audio src="{{$en->contant}}" class="audio_btn"></audio>
+          <audio src="{{$en->contant}}" class="audio_btn" class=""></audio>
           @endforeach
         </div>
       </div>

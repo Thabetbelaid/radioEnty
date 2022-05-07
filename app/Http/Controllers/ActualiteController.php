@@ -50,4 +50,11 @@ class ActualiteController extends Controller
     {
         # code...
     }
+    public function search(string $id)
+    {
+        $act = actualite::where('categorie_id',$id)->get();
+        return view('actualites.index',[
+            "actualites"=>$act
+        ]);
+    }
 }

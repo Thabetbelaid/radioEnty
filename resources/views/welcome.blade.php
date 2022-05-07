@@ -717,9 +717,15 @@
           <div class="inside">
             <div class="text">
               <h3>User <span class="color">Stories</span></h3>
-              {{$temoins = DB::table('temoignages')->latest()->limit(5)->get()}}
+              @php
+                  
+                  $temoins = DB::table('temoignages')->latest()->limit(5)->get()
+              @endphp
               @foreach ($temoins as $tm)
-              <p><img src="{{Voyager::image($tm->uploader->avatar)}}" alt="" class="img-left" /> <strong>{{$tm->name}}</strong></p>
+              @php
+                  $uploader = DB::table('users')->where('id',$tm->uploader)->first();
+              @endphp
+              <p><img src="{{Voyager::image($uploader->avatar)}}" alt="" class="img-left img_tm" /> <strong>{{$tm->titre}}</strong></p>
               <p>{{$extract = substr($tm->message,0,250)}}</p>
               @endforeach
             </div>

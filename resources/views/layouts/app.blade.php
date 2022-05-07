@@ -69,7 +69,7 @@
            
                 <ul>
                 @foreach ($categories as $cat)
-                <li><span class="name"><a href="#">{{$cat->name}}</a></span> </li>
+                <li><span class="name"><a href="/actualites/search/{{$cat->id}}">{{$cat->name}}</a></span> </li>
                     
                 @endforeach
                 </ul>
@@ -82,7 +82,7 @@
           
             <li><span class="name"><a href="fallery.html">Gallery</a></span></li>
             <li><span class="name"><a href="faq.html">FAQ</a></span></li>
-            <li><span class="name"><a href="contact.html">Contact</a></span></li>
+            <li><span class="name"><a href="/contact">Contact</a></span></li>
           </ul>
         </nav>
         <!-- //end Off Canvas Menu -->
@@ -157,7 +157,7 @@
                             
                                   <ul>   @foreach ($categories as $cat)
                                    
-                                         <li><a href="#">{{$cat->name}}</a></li>
+                                         <li><a href="/actualites/search/{{$cat->id}}">{{$cat->name}}</a></li>
                                         
                                     @endforeach
                               
@@ -175,7 +175,7 @@
                       <dd></dd>
                       <dt class="item"> <a href="faq.html" class="btn-main">FAQ</a> </dt>
                       <dd></dd>
-                      <dt class="item"> <a href="contact.html" class="btn-main">Contact</a> </dt>
+                      <dt class="item"> <a href="/contact" class="btn-main">Contact</a> </dt>
                       <dd></dd>
                     </dl>
                     <!-- //end Main menu --> 

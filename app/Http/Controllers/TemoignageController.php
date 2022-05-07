@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Temoignage;
+use App\Commentaire;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -36,9 +37,28 @@ class TemoignageController extends Controller
             [TemoignageController::class, "index"] );
 
     }
-    public function show(Temoignage $tn)
+    public function ajouter_comment(string $id, Request $request)
     {
-        return view('temoignages.show',["temoignage"=>$tn]);
+        $tn = temoignage::find($id)->first();
+        $comment = new Commentaire;
+        $comment->name = $request->get('name');
+        $comment->email = $request->get('email');
+        $comment->message = $request->get('message');
+        $comment->temoignage_id = $tn->id;
+        $comment->save();
+        return redirect('temoignages/'.$tn->id);
+
+    }
+    public function show(string $id)
+    {
+        $tn = temoignage::find($id)->first();
+        $commentaires = Commentaire::where('temoignage_id',$tn->id)->orderBy('created_at','desc')->get();
+        $nb = Commentaire::where('temoignage_id',$tn->id)->count();
+        return view('temoignages.show',[
+            "temoignage"=>$tn,
+            "commentaires"=>$commentaires,
+            "nb_comment"=>$nb
+        ]);
     }
     public function users_temoignage(string $id)
     {   

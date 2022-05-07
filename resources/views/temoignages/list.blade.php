@@ -47,13 +47,13 @@ jQuery(function ($) {
             <div class="cd-timeline-date"> <span class="month">{{$tm->created_at}}</span> </div>
             <div class="cd-timeline-content">
               <div class="wrapper">
-                <div class="image-cell"><a href="blog-post.html"><img src="{{asset('images/liveradio/img-blog-post-1.jpg')}}" class="img-responsive animate scale animated" alt="" draggable="false"></a>
+                <div class="image-cell"><a href="/temoignages/{{$tm->id}}"><img src="{{$tm->image}}" class="img-responsive animate scale animated" alt="" draggable="false"></a>
                   <div class="post-date"><span class="icon flaticon-clock"></span>&nbsp;{{$tm->created_at}} </div>
                   <div class="post-comment pull-right"><a href="#"><span class="icon flaticon-comment"></span>41</a><a href="#"><span class="icon flaticon-heart"></span>17</a></div>
                 </div>
               </div>
               <div class="title">
-                <h3><a href="#">{{$tm->titre}}</a></h3>
+                <h3><a href="/temoignages/{{$tm->id}}">{{$tm->titre}}</a></h3>
               </div>
               <p>{{$tm->message}}</p>
             </div>

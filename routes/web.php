@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualiteController;
 use App\Http\Controllers\enregistrementController;
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\TemoignageController;
+use App\Http\Controllers\WebrtcStreamingController;
 use App\Pub;
 use App\Actualite;
 use App\Gallery;
@@ -38,6 +40,7 @@ Route::get('/', function(){
 });
 route::get('/actualites',[ActualiteController::class, "index"]);
 Route::post('/actualites/{actualite}',[ActualiteController::class, "create"]);
+Route::get('/actualites/search/{id}',[ActualiteController::class, "search"]);
 Route::get('/actualites/create',[ActualiteController::class, "new"]);
 Route::get('/actualites/{actualite}',[ActualiteController::class, "show"]);
 Route::get('/actualites/update/{actualite}',[ActualiteController::class, "update"]);
@@ -54,8 +57,16 @@ route::get('/temoignages',[TemoignageController::class,'index']);
 route::get('/temoignages/new',[TemoignageController::class,'create']);
 route::post('/temoignages/new',[TemoignageController::class,'store']);
 route::get('/temoignages/{id}',[TemoignageController::class,'show']);
+route::post('/temoignages/{id}',[TemoignageController::class,'ajouter_comment']);
 route::get('/temoignages/users/{id}',[TemoignageController::class,'users_temoignage']);
 
+route::get('/contact',[contactController::class, "create"]);
+route::post('/contact',[contactController::class, "store"]);
+
+Route::get('/streaming',[WebrtcStreamingController::class, 'index'] );
+Route::get('/streaming/{streamId}', [WebrtcStreamingController::class, 'consumer']);
+Route::post('/stream-offer',  [WebrtcStreamingController::class, 'makeStreamOffer']);
+Route::post('/stream-answer',  [WebrtcStreamingController::class, 'makeStreamAnswer']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

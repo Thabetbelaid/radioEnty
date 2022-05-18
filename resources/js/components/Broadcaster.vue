@@ -44,11 +44,9 @@ export default {
     },
     streamLink() {
       // just a quick fix. can be improved by setting the app_url
-      if (this.env === "production") {
-        return `https://laravel-video-call.herokuapp.com/streaming/${this.streamId}`;
-      } else {
+     
         return `http://127.0.0.1:8000/streaming/${this.streamId}`;
-      }
+      
     },
   },
   methods: {

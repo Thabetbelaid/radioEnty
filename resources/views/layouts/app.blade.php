@@ -78,7 +78,7 @@
 
          
             
-            <li><span class="name"><a href="schedule.html">Schedule</a></span></li>
+            <li><span class="name"><a href="/emploi">Schedule</a></span></li>
           
             <li><span class="name"><a href="fallery.html">Gallery</a></span></li>
             <li><span class="name"><a href="faq.html">FAQ</a></span></li>
@@ -92,14 +92,14 @@
             <header> 
               
               <!-- Back to top -->
-              <div class="back-to-top"><span class="arrow-up"><img src="images/icon-scroll-arrow.png" alt=""></span><img src="images/icon-scroll-mouse.png" alt=""></div>
+              <div class="back-to-top"><span class="arrow-up"><img src="{{asset('images/icon-scroll-arrow.png')}}" alt=""></span><img src="{{asset('images/icon-scroll-mouse.png')}}" alt=""></div>
               <!-- //end Back to top -->
               
               <section class="navbar">
                 <div class="background">
                   <div class="container"> 
                     <!-- Logo -->
-                    <div class="navbar-logo pull-left"> <a href="index.html"><img src="images/liveradio/logo-dark.gif" alt="Live Radio" class="img-responsive"></a></div>
+                    <div class="navbar-logo pull-left"> <a href="/"><img src="{{asset('images/liveradio/logo-dark.gif')}}" alt="Live Radio" class="img-responsive"></a></div>
                     <!-- //end Logo -->
                     <div id="top-player">
                       <div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -145,7 +145,7 @@
                     <!-- //end Search --> 
                     <!-- Main menu -->
                     <dl class="navbar-main-menu hidden-xs">
-                      <dt class="item"> <a href="index.html" class="btn-main"><span class="icon flaticon-home"></span></a> </dt>
+                      <dt class="item"> <a href="/" class="btn-main"><span class="icon flaticon-home"></span></a> </dt>
                       <dd></dd>
                       <dt class="item">
                         <ul class="sf-menu">
@@ -168,7 +168,7 @@
                         </ul>
                       </dt>
                       <dd></dd>
-                      <dt class="item"> <a href="schedule.html" class="btn-main">Schedule</a> </dt>
+                      <dt class="item"> <a href="/emploi" class="btn-main">Schedule</a> </dt>
                       <dd></dd>
                    
                       <dt class="item"> <a href="gallery.html" class="btn-main">GALLERY</a> </dt>
@@ -176,6 +176,14 @@
                       <dt class="item"> <a href="faq.html" class="btn-main">FAQ</a> </dt>
                       <dd></dd>
                       <dt class="item"> <a href="/contact" class="btn-main">Contact</a> </dt>
+                      @guest
+                          
+                      <dt class="item"> <a href="/login" class="btn-main">login</a> </dt>
+                      @endguest
+                      @auth
+                      <dt class="item"> <a href="/logout" class="btn-main">logout</a> </dt>
+                          
+                      @endauth
                       <dd></dd>
                     </dl>
                     <!-- //end Main menu --> 
@@ -196,6 +204,7 @@
                             <input type="text" class="form-control" value="Search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if(this.value == 'Search') {this.value = '';}">
                           </div>
                         </form>
+                       
                         <!-- //end Search --> 
                       </div>
                     </div>

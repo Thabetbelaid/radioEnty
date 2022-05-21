@@ -9,7 +9,7 @@ class enregistrementController extends Controller
 {
     public function index()
     {
-        $enregistrements = Enregistrement::all();
+        $enregistrements = Enregistrement::where('autorise','1')->get();
         return view("enregistrements.index",[
             "enregistrements"=>$enregistrements
         ]);
@@ -22,6 +22,7 @@ class enregistrementController extends Controller
     {
         $enregistrement = new Enregistrement;
         $enregistrement->contant = $request->file("message");
+        //upload non termine
         $enregistrement->sender_name = auth()->user()->name;
         $enregistrement->save();
         return redirect()->action(

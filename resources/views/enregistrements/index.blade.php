@@ -25,7 +25,7 @@
             <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
           </div> --}}
           @foreach ($enregistrements as $en)
-              
+           @dump($en)   
           <audio src="{{$en->contant}}" class="audio_btn" class=""></audio>
           @endforeach
         </div>

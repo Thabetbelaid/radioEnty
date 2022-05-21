@@ -576,7 +576,7 @@
       <div class="banner-box" onclick="location.href='#'">
         <div class="inside">
           <div class="icon-float-left animate fadeIn">
-            <div class="icon-circle"><a href="#"><span class="icon flaticon-musical51"></span></a></div>
+            <div class="icon-circle"><a href="/enregistrements/"><span class="icon flaticon-musical51"></span></a></div>
           </div>
           <div class="text-float-right">
             <div class="inside">
@@ -589,11 +589,11 @@
       <div class="banner-box" onclick="location.href='#'">
         <div class="inside">
           <div class="icon-float-left">
-            <div class="icon-circle animate fadeIn"><a href="#"><span class="icon flaticon-movie29"></span></a></div>
+            <div class="icon-circle animate fadeIn"><a href="/streaming"><span class="icon flaticon-movie29"></span></a></div>
           </div>
           <div class="text-float-right">
             <div class="inside">
-              <h3 class="upper">Online</h3>
+              <h3 class="upper">watch live</h3>
               <p>www.liveradio.com</p>
             </div>
           </div>
@@ -615,11 +615,11 @@
       <div class="banner-box" onclick="location.href='#'">
         <div class="inside">
           <div class="icon-float-left">
-            <div class="icon-circle animate fadeIn"><a href="#"><span class="icon flaticon-podcast6"></span></a></div>
+            <div class="icon-circle animate fadeIn"><a href="/staff"><span class="icon flaticon-podcast6"></span></a></div>
           </div>
           <div class="text-float-right">
             <div class="inside">
-              <h3 class="upper">On Demand</h3>
+              <h3 class="upper">Notre staff</h3>
               <p>Radio Podcasts</p>
             </div>
           </div>

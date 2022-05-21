@@ -10,9 +10,9 @@
 <div class="autre_acts">
 @foreach($actualites as $act)
     <div class="cadre">
-        <img src="{{Voyager::image($act->thumbnail)}}" alt="">
-        <h3><a href="">{{$act->title}}</a></h3>
+        <img src="{{Voyager::image($act->thumbnail)}}" alt="" width="100px" height="100px">
+        <h3><a href="/actualites/{{$act->id}}">{{$act->title}}</a></h3>
     </div>
-</div>
-@endforeach
+
+@endforeach</div>
 @endsection

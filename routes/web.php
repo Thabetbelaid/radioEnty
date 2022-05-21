@@ -6,6 +6,8 @@ use App\Http\Controllers\enregistrementController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\TemoignageController;
 use App\Http\Controllers\WebrtcStreamingController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\EmploiController;
 use App\Pub;
 use App\Actualite;
 use App\Gallery;
@@ -67,6 +69,13 @@ Route::get('/streaming',[WebrtcStreamingController::class, 'index'] );
 Route::get('/streaming/{streamId}', [WebrtcStreamingController::class, 'consumer']);
 Route::post('/stream-offer',  [WebrtcStreamingController::class, 'makeStreamOffer']);
 Route::post('/stream-answer',  [WebrtcStreamingController::class, 'makeStreamAnswer']);
+route::get('/staff',function(){
+    return view('staff');
+});
+route::get('/emploi',[EmploiController::class,'show']);
+route::get('/gallery',[GalleryController::class,'index']);
+route::get('/gallery/{event}',[GalleryController::class,'findByEvent']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

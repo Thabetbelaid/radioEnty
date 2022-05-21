@@ -584,7 +584,7 @@ header {
 /*navigation*/
 
 .navbar {
-	width: 100%;
+	width: 100% !important;
 	border-radius: 0;
 	position: absolute;
 	top: 0;
@@ -600,6 +600,7 @@ header {
 	border-bottom: 0 solid rgba(0, 0, 0, 0);
 	z-index: 1;
 	color: #fff;
+	width: 100% !important;
 }
 .navbar-main-menu, .navbar-main-menu .item {
 	-webkit-box-sizing: content-box;
